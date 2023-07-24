@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
-
+import { Navigate } from "react-router-dom";
 import Auth from "../utils/auth";
 
 const Logon = () => {
@@ -49,7 +49,7 @@ const Logon = () => {
           {data ? (
               <p>
                
-                <Link to="/Posts">come on in!.</Link>
+                <Navigate to="/Posts"/>
               </p>
             ) : (
             <form onSubmit={handleSubmit}>
