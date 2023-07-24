@@ -30,7 +30,6 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem('id_token', idToken);
-   return <Navigate to="/posts" />
   }
 
   logout() {
