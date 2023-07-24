@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { CREATE_POST } from "../utils/mutations";
+import { ADD_POST } from "../utils/mutations";
 import { QUERY_POSTS } from "../utils/queries";
 import Auth from "../utils/auth";
 
 const PostForm = () => {
   const [postText, setPostText] = useState("");
-  const [createPost, { error }] = useMutation(CREATE_POST, {
-    update(cache, { data: { createPost } }) {
+  const [addPost, { error }] = useMutation(ADD_POST, {
+    update(cache, { data: { addPost } }) {
       // Update the cached posts list with the new post
       try {
         const { posts } = cache.readQuery({ query: QUERY_POSTS });
 
         cache.writeQuery({
           query: QUERY_POSTS,
-          data: { posts: [createPost, ...posts] },
+          data: { posts: [addPost, ...posts] },
         });
       } catch (e) {
         console.error(e);
@@ -25,7 +25,7 @@ const PostForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await createPost({
+      const { data } = await addPost({
         variables: {
           postText,
           postAuthor: Auth.getProfile().data.username,
@@ -47,7 +47,7 @@ const PostForm = () => {
       <div className="col-12 col-12-md">
         <div className="mt-2 card bg-blue-dark-4 o-90">
           <h2 className="card-title text-orange-light-3 ml-3">
-            Create a New Post
+            add a New Post
           </h2>
           {Auth.loggedIn() ? (
             <>

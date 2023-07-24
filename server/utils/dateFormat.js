@@ -64,3 +64,4 @@ const addDateSuffix = (date) => {
     const formattedTimeStamp = `${formattedMonth} ${dayOfMonth}, ${year} at ${hour}:${minutes} ${periodOfDay}`;
   
     return formattedTimeStamp;
+  };

@@ -50,7 +50,7 @@ const resolvers = {
     },
     addPost: async (parent, { postText }, context) => {
       if (context.user) {
-        const post = await post.create({
+        const post = await Post.create({
           postText,
           postAuthor: context.user.username,
         });
@@ -66,7 +66,7 @@ const resolvers = {
     },
     addComment: async (parent, { postId, commentText }, context) => {
       if (context.user) {
-        return post.findOneAndUpdate(
+        return Post.findOneAndUpdate(
           { _id: postId },
           {
             $addToSet: {
@@ -83,7 +83,7 @@ const resolvers = {
     },
     removePost: async (parent, { postId }, context) => {
       if (context.user) {
-        const post = await post.findOneAndDelete({
+        const post = await Post.findOneAndDelete({
           _id: postId,
           postAuthor: context.user.username,
         });

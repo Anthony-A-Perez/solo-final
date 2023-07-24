@@ -5,18 +5,18 @@ import { useQuery } from "@apollo/client";
 import PostForm from "../components/PostForm";
 import PostList from "../components/PostList";
 
-import { QUERY_USER, QUERY_MYSELF } from "../utils/queries";
+import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
 const User = () => {
   const { username: userParam } = useParams();
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_MYSELF, {
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
-  const user = data?.myself || data?.user || {};
+  const user = data?.QUERY_ME || data?.user || {};
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;

@@ -16,7 +16,7 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_POSTS = gql`
-  query getPosts {
+  query posts {
     posts {
       _id
       postText
@@ -26,8 +26,8 @@ export const QUERY_POSTS = gql`
   }
 `;
 
-export const QUERY_SINGLE_POST = gql`
-  query getSinglePost($postId: ID!) {
+export const QUERY_POST = gql`
+  query post($postId: ID!) {
     post(postId: $postId) {
       _id
       postText

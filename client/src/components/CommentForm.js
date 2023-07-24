@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { CREATE_COMMENT } from "../utils/mutations";
+import { ADD_COMMENT } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const CommentForm = ({ postId }) => {
   const [commentText, setCommentText] = useState("");
 
-  const [createComment, { error }] = useMutation(CREATE_COMMENT);
+  const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { data } = await createComment({
+      const { data } = await addComment({
         variables: {
           postId,
           commentText,
