@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { Navigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 
@@ -46,7 +46,7 @@ const Signup = () => {
           <div className="card-body flex-row justify-center mb-2">
             {data ? (
               <p>
-                <Link to="/Posts">come on in!.</Link>
+                <Navigate to="/posts"/>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>

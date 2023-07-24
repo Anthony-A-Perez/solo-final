@@ -49,7 +49,7 @@ const Logon = () => {
           {data ? (
               <p>
                
-                <Navigate to="/Posts"/>
+                <Navigate to="/posts"/>
               </p>
             ) : (
             <form onSubmit={handleSubmit}>

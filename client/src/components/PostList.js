@@ -21,7 +21,7 @@ const PostList = () => {
             {posts.map((post) => (
               <div key={post._id} className="card-body">
                 <div className="card bg-blue-light-9 br-lg m-1">
-                  <Link to={`/Post/${post._id}`}>
+                  <Link to={`/post/${post._id}`}>
                     <h3>{post.postText}</h3>
                   </Link>
                   <Link to={`/user/${post.postAuthor}`}>
