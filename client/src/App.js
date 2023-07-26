@@ -53,7 +53,7 @@ function App() {
               <Route path="/posts" element={<Posts />} />
               <Route path="/post/:postId" element={<Post />} />
               <Route path="/me" element={<User />} />
-              <Route path="/profiles/:username" element={<User />} />
+              <Route path="/user/:username" element={<User />} />
               <Route path="/logon" element={<Logon />} />
               <Route path="/signup" element={<Signup />} />
             </Routes>
